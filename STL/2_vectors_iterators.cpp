@@ -66,6 +66,8 @@ int main(){
         // cout << *i << " ";
     }
     
+    // The for-each loop automatically implements iterator-based approach 
+    // (the loop below is absolutely the same as the one above) 
     for(auto it : my_vector){
         // cout << it << " "; // Note that we didn't use *(dereference operator). This is range based not iterator based
     }
@@ -82,6 +84,17 @@ int main(){
     // v2.size() // returns the size of the vector
     // v1.swap(v2) // swaps the two vectors
     // v2.empty() // return true or false if empty or not
+
+// *********************************************************
+    // **Additional information:
+    // - Contiguous memory (like a C-style array)
+    // - Supports random access via indexing (vec[i])
+    // - Automatically resizes (usually doubles capacity when full)
+
+    // ✅ Use When
+    // - You need fast access by index
+    // - You mostly push/pop at the end
+    // - Memory locality matters (cache-friendly)(cause obviously it's contiguous)
 
     return 0;
 }

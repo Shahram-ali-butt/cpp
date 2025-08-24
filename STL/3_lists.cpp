@@ -21,5 +21,16 @@ int main(){
     // Rest of the functions are same as vectors
     // e.g. begin(), end(), clear(), insert(), size(), swap() 
 
+// *********************************************************
+    // **Additional information:
+       
+    // - Non-contiguous memory (not in a sequence)
+    // - No direct indexing (list[i] is not allowed)
+    
+    // ✅ Use When
+    // - You need frequent insertions/deletions in the middle
+    // - You don’t need random access
+    // - You want stable iterators (even after insert/delete)
+
     return 0;
 }
