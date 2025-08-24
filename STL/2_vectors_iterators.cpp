@@ -85,16 +85,16 @@ int main(){
     // v1.swap(v2) // swaps the two vectors
     // v2.empty() // return true or false if empty or not
 
-// *********************************************************
-    // **Additional information:
-    // - Contiguous memory (like a C-style array)
-    // - Supports random access via indexing (vec[i])
-    // - Automatically resizes (usually doubles capacity when full)
-
+// **********************************************************
+    // ***Additional information:
+    //  Contiguous memory (like a C-style array)
+    //  Supports random access via indexing (vec[i])
+    //  Automatically resizes (usually doubles capacity when full)
+    
     // ✅ Use When
-    // - You need fast access by index
-    // - You mostly push/pop at the end
-    // - Memory locality matters (cache-friendly)(cause obviously it's contiguous)
+    //  You need fast access by index
+    //  You mostly push/pop at the end
+    //  Memory locality matters (cache-friendly)(cause obviously it's contiguous)
 
     return 0;
 }
