@@ -19,6 +19,14 @@ int main(){
     v1.emplace_back(5); // another syntax for pushing elements at the end
     // cout << v1[5] << " " << v1[6] << endl;
 
+    // ** Insight:
+    // push() Constructs the object outside the container, then copies or moves it in
+    // emplace() Constructs the object directly inside the container using its constructor arguments
+    // For example: Person p("Alice", 30);
+    //              my_container.push(p); // copy or move into container
+    // my_container.emplace("Alice", 30); // constructs in-place
+    // **
+
     vector<pair<int, int>> v2;
     v2.push_back({1,2}); // explicitly making it a pair
     v2.emplace_back(1,2); // automatically assumes it a pair
