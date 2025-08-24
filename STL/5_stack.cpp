@@ -12,16 +12,17 @@ int main()
 
     stack<int> st;
     st.push(1);
-    st.emplace(2);
-    st.pop();
+    st.push(2);
+    st.emplace(3);
+    st.pop(); //removes 2
 
-    cout << st.top() << endl;
+    cout << st.top() << endl; //Output: 2
 
-    st.size();
-    st.empty();
+    // st.size(); // 2
+    // st.empty(); // false
 
     stack<int> st2;
-    st.swap(st2);
+    st.swap(st2); // swaps both
 
     // ************************* Under The Hood ********************************
     // By default, std::stack uses std::deque as its underlying container:
