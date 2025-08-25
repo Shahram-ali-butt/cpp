@@ -19,10 +19,6 @@ int main(){
     dq1.pop_front();
     dq1.pop_back();
     
-    
-    for(int i = 0; i < dq1.size(); i++){
-        cout << dq1[i] << endl;
-    }
     // ****************** Other Functions ******************
     // Rest of the functions are same as vectors
     // e.g. begin(), end(), clear(), insert(), size(), swap() 
