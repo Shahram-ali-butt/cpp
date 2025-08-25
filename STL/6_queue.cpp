@@ -24,7 +24,7 @@ int main() {
 
     // ************************* Under The Hood ********************************
     //  By default, std::queue uses std::deque:
-    // std::queue<int, std::deque<int>> q;
+    queue<int, deque<int>> q;
     // You can also use std::list if needed, but not std::vector, because vectors don’t support efficient front removal.
     
     return 0;
