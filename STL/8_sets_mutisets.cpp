@@ -44,10 +44,12 @@ int main(){
     // ************************* Lower and upper bound *****************************
     set<int> s = {10, 20, 30, 40, 50};
 
-    auto lb = s.lower_bound(25); // returns an iterator and points to 30
-    auto ub = s.upper_bound(30); // points to 40
+    auto lb = s.lower_bound(25); // returns an iterator and points to 30 (>=x)
+    auto lb2 = s.lower_bound(20); // returns an iterator and points to 20 (>=20)
+    auto ub = s.upper_bound(30); // points to 40 (>x)
 
     cout << "Lower bound of 25: " << *lb << "\n";
+    cout << "Lower bound of 20: " << *(lb2) << "\n";
     cout << "Upper bound of 30: " << *ub << "\n";
 
     return 0;

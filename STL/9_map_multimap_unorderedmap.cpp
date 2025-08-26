@@ -3,8 +3,8 @@
 #include <unordered_map>
 using namespace std;
 
-void multi_map();// Multimaps are exllained below in  a separate function 
-void unorderedmap();// Unordered are exllained below in  a separate function 
+void multi_map(); // Multimaps are explained below in a separate function 
+void unorderedmap(); // Unordered are explained below in a separate function 
 
 int main()
 {
@@ -19,24 +19,24 @@ int main()
     m[3] = "C"; // Also inserts if key doesn't exist
 
     // Access
-    std::cout << m[1] << endl; // "A"
-    std::cout << m.count(2) << endl; // 1
+    // std::cout << m[1] << endl; // "A"
+    // std::cout << m.count(2) << endl; // 1
 
     // Search
     if (m.find(3) != m.end()) {
-        std::cout << "Found key 3" << endl;
+        // std::cout << "Found key 3" << endl;
     }
 
     // Erase
     m.erase(2);
 
     // Iterate
-    for (auto& [key, value] : m) {
+    for (auto [key, value] : m) {
         cout << key << ": " << value << "\n";
     }
 
     for(auto elem : m){
-        cout << elem.first << " " << elem.second << endl;
+        // cout << elem.first << " " << elem.second << endl;
     }
 
     return 0;
