@@ -17,6 +17,10 @@ class my_array{
             delete[] ptr;
         }
 
+        int get_used_size() const{
+            return used_size;
+        }
+        
         void set() const {
             T n;
             for(int i = 0; i < used_size; i++){
@@ -26,17 +30,14 @@ class my_array{
             }
         }
 
-        void get(int index) const {
+        T get(int index) const {
             if(index >= used_size){
                 cout << "There is no element at index: " << index << endl;
-            }else{
-                cout << ptr[index] << endl;
+                return -1;
             }
+            return ptr[index];
         }
         
-        int get_used_size() const{
-            return used_size;
-        }
 
         void print() const {
             cout << "[";
@@ -107,26 +108,62 @@ class my_array{
             }
             return -1;
         }
-    };
+        
+        int binary_search(T elem) const{
+            T start = 0;
+            T mid = used_size / 2;
+            T end = used_size - 1;
+            cout << "First mid: " << mid << endl;
+            while(start <= end){
+                if(elem == ptr[mid]){
+                    return mid;
+                }else if(elem < ptr[mid]){
+                    end = mid - 1;
+                    mid = (start + end) / 2;
+                }else if(elem > ptr[mid]){
+                    start = mid + 1;
+                    mid = (start + end) / 2;
+                    
+                }
+            }
+            return -1;
+        }
+        
+        int search(T elem, bool is_sorted = false) const{
+            if(is_sorted){
+                return binary_search(elem);
+            }
+            return linear_search(elem);
+        }
+};
     
 
 int main(){
-    my_array<int> a1(20, 3);
-    a1.set();
-    // a1[2] = 16;
-    // int x = a1[2];
-    // cout << a1[2] << endl;
-    // cout << x << endl;
-    a1.print();
-    a1.del(1); // won't run for const object
-    // insert() won't work with const object
-    // a1.insert(3, 3); 
-    a1.print();
-    // a1.get(5);
-    // int position = a1.linear_search(2);
-    // (position != -1) ? cout << a1[position] << " is at index: " << position : cout <<"The element was not found!";
+    my_array<int> a1(20, 10);
+    a1.set(); // setting all positions to be used not all positions allocated
+    a1.print(); // prints as an array
 
-    // my_array<string> a2(5, 4);
+    // a1[2] = 16; // Elements are made accessible as well as modifiableusing bracket syntax
+    // int x = a1[2];
+    int y = a1.get(16); // Can also access elements using get method
+    cout << y << endl;
+    // a1.del(1); // won't run for const object! takes index to delete element. 
+  
+    // a1.insert(3, 3); // won't work with const object! takes index & element 
+    
+
+    // int position1 = a1.linear_search(2); // For both sorted and unsorted arrays.
+    // (position1 != -1) ? cout << a1[position1] << " is at index: " << position1 : cout <<"The element was not found!";
+    
+    // int position2 = a1.binary_search(2); // Only for sorted arrays
+    // (position2 != -1) ? cout << a1[position2] << " is at index: " << position2 : cout <<"The element was not found!";
+    
+    // int search_index1 = a1.search(9); //runs linear search. Optional parameter 'is_sorted' set to false as default.
+    // int search_index2 = a1.search(2, true); //optional parameter 'is_sorted' set to true. Will run binary search 
+    // (search_index2 != -1) ? cout << a1[search_index2] << " is at index: " << search_index2 : cout <<"The element was not found!";
+
+    
+    // my_array<string> a2(5, 4); // creating an array of strings
     // a2.set();
     // a2.print();
     return 0;
