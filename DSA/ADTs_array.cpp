@@ -31,14 +31,13 @@ class my_array{
         }
 
         T get(int index) const {
-            if(index >= used_size){
+            if(index < 0 || index >= used_size){
                 cout << "There is no element at index: " << index << endl;
                 return -1;
             }
             return ptr[index];
         }
         
-
         void print() const {
             cout << "[";
             for(int i = 0; i < used_size; i++){
@@ -51,7 +50,7 @@ class my_array{
         }
 
         void del(int index){
-            if(index >= used_size){
+            if(index < 0 || index >= used_size){
                 cout << "There is no element at index: " << index << endl;
                 return;
             }else{
@@ -65,7 +64,7 @@ class my_array{
         void del(int index) const {
             throw logic_error("del() won't work for 'const' object. Cannot change the attribute 'used_size'");
         }
-        
+
         T& operator[](int index) {
             if (index < 0 || index >= used_size) throw out_of_range("Index out of range");
             return ptr[index];
